@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+int calc_max(vector<int> a){
+    int res = 0;
+    for( auto i : a )
+        res = max( res , i );
+    return res;
+}
+ 
+int main(){
+    int tc;
+    cin >> tc;
+    while( tc-- ){
+        int n;
+        cin >> n;
+ 
+        vector<int> a(n), b(n);
+        for( auto &i : a )
+            cin >> i;
+        for( auto &i : b )
+            cin >> i;
+ 
+        for(int i=0; i<n; i++)
+            if( a[i] > b[i] )
+                swap( a[i] , b[i] );
+ 
+        cout << calc_max(a) * calc_max(b) << '\n';
+    }
+}
+//input
+3
+6
+1 2 6 5 1 2
+3 4 3 2 2 5
+3
+3 3 3
+3 3 3
+2
+1 2
+2 1
